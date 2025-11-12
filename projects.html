@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Albert Luera</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AL</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="personal.html">Personal Art</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects Content -->
+    <section class="content-section">
+        <div class="container">
+            <h1 class="section-title">CLIENT PROJECTS</h1>
+            <p style="max-width: 800px; margin-bottom: 4rem;">
+                A selection of commercial work spanning event promotion, brand identity,
+                and digital campaigns. Each project designed to grab attention and deliver results.
+            </p>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 - Image -->
+                <div class="gallery-item">
+                    <img src="https://placehold.co/800x800/000000/FF10F0?text=PROJECT+01" alt="Project 1">
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">EVENT FLYER</h3>
+                        <p>Live music promotion</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 - Image -->
+                <div class="gallery-item">
+                    <img src="https://placehold.co/800x800/000000/00FFFF?text=PROJECT+02" alt="Project 2">
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">BRAND IDENTITY</h3>
+                        <p>Local business rebrand</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 - Video placeholder -->
+                <div class="gallery-item">
+                    <video loop muted>
+                        <source src="assets/videos/project-01.mp4" type="video/mp4">
+                    </video>
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">SOCIAL CAMPAIGN</h3>
+                        <p>Animated content series</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 - Image -->
+                <div class="gallery-item">
+                    <img src="https://placehold.co/800x800/000000/FFFFFF?text=PROJECT+03" alt="Project 3">
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">POSTER DESIGN</h3>
+                        <p>Concert series artwork</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 - Image -->
+                <div class="gallery-item">
+                    <img src="https://placehold.co/800x800/000000/FF0000?text=PROJECT+04" alt="Project 4">
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">ALBUM ARTWORK</h3>
+                        <p>Hip-hop release cover</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 - Video placeholder -->
+                <div class="gallery-item">
+                    <video loop muted>
+                        <source src="assets/videos/project-02.mp4" type="video/mp4">
+                    </video>
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">MOTION GRAPHICS</h3>
+                        <p>Brand intro animation</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 - Image -->
+                <div class="gallery-item">
+                    <img src="https://placehold.co/800x800/000000/FF10F0?text=PROJECT+05" alt="Project 5">
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">MERCHANDISE</h3>
+                        <p>T-shirt and apparel design</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 - Image -->
+                <div class="gallery-item">
+                    <img src="https://placehold.co/800x800/000000/00FFFF?text=PROJECT+06" alt="Project 6">
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">PACKAGING</h3>
+                        <p>Product label design</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 9 - Image -->
+                <div class="gallery-item">
+                    <img src="https://placehold.co/800x800/000000/FFFFFF?text=PROJECT+07" alt="Project 7">
+                    <div class="gallery-item-overlay">
+                        <h3 class="gallery-item-title">DIGITAL ADS</h3>
+                        <p>Social media ad campaign</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="text-align: center; margin-top: 6rem;">
+                <h2 style="margin-bottom: 2rem;">LIKE WHAT YOU SEE?</h2>
+                <a href="contact.html" class="cta-button">Let's Work Together</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="border-top: 3px solid white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+        <div class="container">
+            <div class="social-links" style="justify-content: center;">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Behance</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-play videos on hover
+        document.querySelectorAll('.gallery-item video').forEach(video => {
+            video.parentElement.addEventListener('mouseenter', () => {
+                video.play();
+            });
+            video.parentElement.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        });
+    </script>
+</body>
+</html>

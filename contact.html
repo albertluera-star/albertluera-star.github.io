@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Albert Luera</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AL</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="personal.html">Personal Art</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Content -->
+    <section class="content-section">
+        <div class="container">
+            <h1 class="section-title">GET IN TOUCH</h1>
+
+            <div style="max-width: 800px; margin-bottom: 4rem;">
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">
+                    Ready to create something bold? Let's talk about your project.
+                </p>
+                <p>
+                    Whether you need event promotion materials, social media graphics, brand identity,
+                    or custom artwork, I'm here to help bring your vision to life. Drop me a line
+                    and let's make something unforgettable.
+                </p>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <!-- Email -->
+                <div class="contact-item">
+                    <h3>EMAIL</h3>
+                    <a href="mailto:albertluera@gmail.com">albertluera@gmail.com</a>
+                </div>
+
+                <!-- Social Media -->
+                <div class="contact-item">
+                    <h3>FOLLOW ME</h3>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="https://instagram.com/yourhandle" target="_blank" class="social-link">Instagram</a>
+                        <a href="https://behance.net/yourhandle" target="_blank" class="social-link">Behance</a>
+                        <a href="https://twitter.com/yourhandle" target="_blank" class="social-link">Twitter</a>
+                        <a href="https://linkedin.com/in/yourhandle" target="_blank" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="contact-item">
+                    <h3>LOCATION</h3>
+                    <p style="font-size: 1.2rem;">Oakland, California</p>
+                    <p style="margin-top: 1rem; opacity: 0.8;">Available for local and remote projects</p>
+                </div>
+            </div>
+
+            <!-- Alternative: Simple Contact Form -->
+            <div style="margin-top: 6rem; max-width: 600px;">
+                <h2 style="margin-bottom: 2rem;">SEND A MESSAGE</h2>
+
+                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase;">Name</label>
+                        <input type="text"
+                               id="name"
+                               name="name"
+                               required
+                               style="width: 100%; padding: 1rem; background-color: #000; color: #fff; border: 3px solid #fff; font-size: 1rem; font-family: inherit;">
+                    </div>
+
+                    <div>
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase;">Email</label>
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               required
+                               style="width: 100%; padding: 1rem; background-color: #000; color: #fff; border: 3px solid #fff; font-size: 1rem; font-family: inherit;">
+                    </div>
+
+                    <div>
+                        <label for="project" style="display: block; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase;">Project Type</label>
+                        <select id="project"
+                                name="project"
+                                style="width: 100%; padding: 1rem; background-color: #000; color: #fff; border: 3px solid #fff; font-size: 1rem; font-family: inherit;">
+                            <option value="">Select a project type</option>
+                            <option value="event">Event Promotion</option>
+                            <option value="social">Social Media Graphics</option>
+                            <option value="brand">Brand Identity</option>
+                            <option value="custom">Custom Artwork</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase;">Message</label>
+                        <textarea id="message"
+                                  name="message"
+                                  rows="6"
+                                  required
+                                  style="width: 100%; padding: 1rem; background-color: #000; color: #fff; border: 3px solid #fff; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit"
+                            class="cta-button"
+                            style="cursor: pointer; align-self: flex-start;">
+                        Send Message
+                    </button>
+                </form>
+
+                <p style="margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">
+                    Note: This form is a placeholder. To make it functional, you'll need to connect it to
+                    a backend service like Formspree, Netlify Forms, or a custom email handler.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="border-top: 3px solid white; padding: 3rem 2rem; text-align: center; margin-top: 6rem;">
+        <div class="container">
+            <p style="opacity: 0.7;">© 2024 Albert Luera. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

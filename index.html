@@ -3,145 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Title for your website -->
-    <title>Albert Luera - Graphic Design</title>
-    
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuration for Tailwind (optional, but good for custom fonts) -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-          },
-        },
-      }
-    </script>
-    
-    <!-- Basic styles to ensure Inter font is used -->
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-    </style>
-    
-    <!-- Import Inter font from Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    
+    <title>Albert Luera - Graphic Designer</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-900 text-white min-h-screen antialiased">
-    
-    <!-- Main container -->
-    <div class="container mx-auto p-8">
-        
-        <!-- Navigation Bar -->
-        <nav class="flex justify-between items-center mb-16">
-            <!-- Left Side: Name -->
-            <div class="text-2xl font-bold text-white">
-                Albert Luera
-            </div>
-            <!-- Right Side: Links -->
-            <div class="flex space-x-8">
-                <a href="#projects" class="text-lg text-gray-300 hover:text-white transition-colors duration-200">Projects</a>
-                <a href="#contact" class="text-lg text-gray-300 hover:text-white transition-colors duration-200">Contact</a>
-            </div>
-        </nav>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AL</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="personal.html">Personal Art</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-        <!-- Hero Section -->
-        <section class="mb-24 text-center max-w-3xl mx-auto">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
-                Oakland-Based Graphic Designer
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-300">
-                Specializing in vibrant event flyers and engaging social media graphics.
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>OAKLAND-BASED<br>GRAPHIC<br>DESIGNER</h1>
+        <p>
+            Creating bold, unforgettable visuals for events, brands, and social media.
+            Specializing in vibrant event flyers and engaging digital content.
+        </p>
+        <a href="contact.html" class="cta-button">Work With Me</a>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section class="featured-work">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+
+            <div class="work-preview">
+                <!-- Project Preview 1 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/600x600/000000/FFFFFF?text=PROJECT+1" alt="Project 1" class="project-card-image">
+                    <div class="project-card-content">
+                        <h3>EVENT FLYER DESIGN</h3>
+                        <p>High-energy promotional materials for Oakland's hottest events.</p>
+                    </div>
+                </div>
+
+                <!-- Project Preview 2 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/600x600/000000/FFFFFF?text=PROJECT+2" alt="Project 2" class="project-card-image">
+                    <div class="project-card-content">
+                        <h3>SOCIAL MEDIA CAMPAIGN</h3>
+                        <p>Eye-catching graphics that stop the scroll and drive engagement.</p>
+                    </div>
+                </div>
+
+                <!-- Project Preview 3 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/600x600/000000/FFFFFF?text=PROJECT+3" alt="Project 3" class="project-card-image">
+                    <div class="project-card-content">
+                        <h3>BRAND IDENTITY</h3>
+                        <p>Bold visual systems that make brands impossible to ignore.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="projects.html" class="cta-button">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="content-section">
+        <div class="container" style="text-align: center;">
+            <h2>READY TO CREATE<br>SOMETHING BOLD?</h2>
+            <p style="margin: 2rem auto; max-width: 600px;">
+                Let's bring your vision to life with designs that demand attention and drive results.
             </p>
-        </section>
+            <a href="contact.html" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="mb-24">
-            <!-- Grid container -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Project 1 -->
-                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
-                    <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+One" alt="Placeholder for Project One" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-white">Project One</h3>
-                        <p class="text-gray-400">A brief description of the event flyer or social media campaign.</p>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
-                    <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+Two" alt="Placeholder for Project Two" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-white">Project Two</h3>
-                        <p class="text-gray-400">A brief description of the event flyer or social media campaign.</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
-                    <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+Three" alt="Placeholder for Project Three" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-white">Project Three</h3>
-                        <p class="text-gray-400">A brief description of the event flyer or social media campaign.</p>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
-                    <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+Four" alt="Placeholder for Project Four" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-white">Project Four</h3>
-                        <p class="text-gray-400">A brief description of the event flyer or social media campaign.</p>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
-                    <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+Five" alt="Placeholder for Project Five" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-white">Project Five</h3>
-                        <p class="text-gray-400">A brief description of the event flyer or social media campaign.</p>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
-                    <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+Six" alt="Placeholder for Project Six" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-2 text-white">Project Six</h3>
-                        <p class="text-gray-400">A brief description of the event flyer or social media campaign.</p>
-                    </div>
-                </div>
-
+    <!-- Footer with Social Links -->
+    <footer style="border-top: 3px solid white; padding: 3rem 2rem; text-align: center;">
+        <div class="container">
+            <h3 style="margin-bottom: 2rem;">CONNECT</h3>
+            <div class="social-links" style="justify-content: center;">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Behance</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">LinkedIn</a>
             </div>
-        </section>
-
-        <!-- Footer Section -->
-        <footer id="contact" class="border-t border-gray-700 mt-24 pt-8 text-center text-gray-400">
-            <p class="mb-2">Get in touch:</p>
-            <!-- Update this with your real email address -->
-            <a href="mailto:albertluera@gmail.com" class="text-lg text-white hover:text-blue-400 transition-colors duration-200">
-                albertluera@gmail.com
-            </a>
-            <div class="mt-8">
-                <!-- You can link this to a real policy page later -->
-                <a href="#privacy-policy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors duration-200">
-                    Privacy Policy
-                </a>
-            </div>
-        </footer>
-
-    </div>
-
+            <p style="margin-top: 3rem; opacity: 0.7;">© 2024 Albert Luera. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
