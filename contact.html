@@ -51,12 +51,23 @@
 
                         <div class="contact-item">
                             <h3>LOCATION</h3>
+                            <p>Oakland, California<br>Bay Area</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>AVAILABILITY</h3>
+                            <p>Open to:<br>• Freelance Projects<br>• Collaborations<br>• Full-Time Roles</p>
                             <p>Your City, Your Country</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form-wrapper">
+                    <h2>SEND A MESSAGE</h2>
+                    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="hidden" name="_subject" value="New contact from portfolio website">
+                        <input type="hidden" name="_next" value="https://albertluera.com/thank-you.html">
+                        
                     <form class="contact-form" action="#" method="POST">
                         <div class="form-group">
                             <label for="name">NAME *</label>
@@ -65,6 +76,18 @@
 
                         <div class="form-group">
                             <label for="email">EMAIL *</label>
+                            <input type="email" id="email" name="_replyto" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">PROJECT TYPE</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select...</option>
+                                <option value="Freelance Project">Freelance Project</option>
+                                <option value="Full-Time Opportunity">Full-Time Opportunity</option>
+                                <option value="Collaboration">Collaboration</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
                             <input type="email" id="email" name="email" required>
                         </div>
 
@@ -75,6 +98,12 @@
 
                         <div class="form-group">
                             <label for="message">MESSAGE *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                        
+                        <p class="form-note">Or email directly: <a href="/cdn-cgi/l/email-protection#254449474057514950405744654248444c490b464a48"><span class="__cf_email__" data-cfemail="07666b656275736b7262756647606a666e6b2964686a">[email&#160;protected]</span></a></p>
                             <textarea id="message" name="message" rows="6" required></textarea>
                         </div>
 
@@ -88,6 +117,8 @@
     <footer class="main-footer">
         <div class="footer-content">
             <div class="social-links">
+                <a href="https://www.mixcloud.com/whatsupalbert/" target="_blank" rel="noopener">MIXCLOUD</a>
+                <a hre
                 <a href="https://instagram.com/yourusername" target="_blank">INSTAGRAM</a>
                 <a href="https://twitter.com/yourusername" target="_blank">TWITTER</a>
                 <a href="https://behance.net/yourusername" target="_blank">BEHANCE</a>
