@@ -1,0 +1,38 @@
+name: Validate gallery
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate-gallery:
+    name: Validate generated gallery
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run gallery generator
+        run: npm run generate-gallery
+
+      - name: Fail if generated files changed
+        run: |
+          # If generate-gallery modified any files, the working tree will show changes.
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Gallery generation changed files. Run 'npm run generate-gallery' locally and commit the changes."
+            git --no-pager status --porcelain
+            exit 1
+          fi
+        shell: bash
