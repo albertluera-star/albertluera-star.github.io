@@ -1,49 +1,25 @@
-// Mobile-optimized JavaScript
+// Video hover playback for project and gallery videos
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ==========================================
-    // MOBILE NAVIGATION
-    // ==========================================
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (navToggle && navLinks) {
-        // Toggle menu
-        navToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (navLinks.classList.contains('active') && 
-                !navToggle.contains(e.target) && 
-                !navLinks.contains(e.target)) {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            }
+    // Force landing video to play
+    const landingVideo = document.getElementById('landing-video');
+    if (landingVideo) {
+        landingVideo.muted = true;
+        landingVideo.play().catch(function(error) {
+            console.log('Video autoplay failed:', error);
+            // Add a click listener to play on user interaction
+            document.addEventListener('click', function playVideo() {
+                landingVideo.play();
+                document.removeEventListener('click', playVideo);
+            }, { once: true });
         });
     }
     
-    // ==========================================
-    // VIDEO HANDLING
-    // ==========================================
+    // Select all videos in project cards and galleries
     const videos = document.querySelectorAll('.project-media video, .gallery-media video');
     
     videos.forEach(video => {
-        // Play on hover (desktop)
+        // Play on hover
         video.addEventListener('mouseenter', function() {
             this.play();
         });
@@ -54,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.currentTime = 0;
         });
         
-        // Click/tap to play/pause (mobile-friendly)
+        // Click to play/pause
         video.addEventListener('click', function() {
             if (this.paused) {
                 this.play();
@@ -64,41 +40,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ==========================================
-    // FORM HANDLING
-    // ==========================================
-    const contactForm = document.querySelector('.contact-form');
-    const bookingForm = document.querySelector('.booking-form');
+    // Mobile menu toggle (for future implementation)
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
     
-    // Contact form
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    }
+    
+    // Form submission handler (placeholder)
+    const contactForm = document.querySelector('.contact-form');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            // Form will submit to Formspree
-            // Add loading state
-            const submitBtn = this.querySelector('.submit-btn');
-            if (submitBtn) {
-                submitBtn.textContent = 'SENDING...';
-                submitBtn.disabled = true;
-            }
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Here you would typically send the data to a server
+            // For now, we'll just log it
+            console.log('Form submitted:', Object.fromEntries(formData));
+            
+            // Show success message (you can customize this)
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            
+            // Reset form
+            this.reset();
         });
     }
     
-    // Booking form
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            // Form will submit to Formspree
-            // Add loading state
-            const submitBtn = this.querySelector('.submit-btn');
-            if (submitBtn) {
-                submitBtn.textContent = 'SUBMITTING...';
-                submitBtn.disabled = true;
-            }
-        });
-    }
-    
-    // ==========================================
-    // SMOOTH SCROLL
-    // ==========================================
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -112,9 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ==========================================
-    // LAZY LOADING IMAGES
-    // ==========================================
+    // Image lazy loading effect
     const images = document.querySelectorAll('img[data-src]');
     
     if ('IntersectionObserver' in window) {
@@ -131,54 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         images.forEach(img => imageObserver.observe(img));
     } else {
-        // Fallback for browsers without IntersectionObserver
+        // Fallback for browsers that don't support IntersectionObserver
         images.forEach(img => {
             img.src = img.dataset.src;
             img.removeAttribute('data-src');
         });
-    }
-    
-    // ==========================================
-    // TOUCH DEVICE OPTIMIZATIONS
-    // ==========================================
-    if ('ontouchstart' in window) {
-        // Add touch-device class for CSS
-        document.documentElement.classList.add('touch-device');
-        
-        // CMYK effect on tap for mobile
-        const galleryItems = document.querySelectorAll('.gallery-item-home');
-        galleryItems.forEach(item => {
-            let tapped = false;
-            item.addEventListener('touchstart', function(e) {
-                if (!tapped) {
-                    e.preventDefault();
-                    this.classList.add('tapped');
-                    tapped = true;
-                    
-                    // Remove tap effect after 500ms
-                    setTimeout(() => {
-                        this.classList.remove('tapped');
-                        tapped = false;
-                    }, 500);
-                }
-            });
-        });
-    }
-    
-    // ==========================================
-    // PERFORMANCE MONITORING
-    // ==========================================
-    if ('performance' in window && 'PerformanceObserver' in window) {
-        // Monitor Largest Contentful Paint
-        try {
-            const po = new PerformanceObserver((entryList) => {
-                for (const entry of entryList.getEntries()) {
-                    console.log('LCP:', entry.startTime);
-                }
-            });
-            po.observe({ type: 'largest-contentful-paint', buffered: true });
-        } catch (e) {
-            // Silently fail if not supported
-        }
     }
 });
