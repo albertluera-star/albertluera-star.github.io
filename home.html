@@ -25,14 +25,15 @@
             </ul>
         </div>
     </nav>
-<section class="landing">
-  <img src="images/logo.png" alt="Albert Luera Logo" class="landing-logo">
 
-  <!-- Floating DJ Booking Button near logo -->
-  <a href="#requestBooking" class="floating-booking-btn">
-    DJ BOOKINGS
-  </a>
-</section>
+    <section class="landing">
+        <img src="images/logo.png" alt="Albert Luera Logo" class="landing-logo">
+
+        <!-- Floating DJ Booking Button near logo -->
+        <a href="#requestBooking" class="floating-booking-btn">
+            DJ BOOKINGS
+        </a>
+    </section>
 
     <main class="gallery-home">
         <div class="gallery-grid-home">
@@ -156,7 +157,7 @@
                 <h3>MAKEROOM</h3>
             </a>
 
-                        <!-- Project 12: Nightlife Residencies -->
+            <!-- Project 12: Nightlife Residencies -->
             <a href="project-nightlife-residencies.html" class="gallery-item-home">
                 <div class="cmyk-container">
                     <img src="Assets/Projects/nightlife-residencies/cover.webp" alt="Nightlife Residencies" class="base-image">
@@ -230,6 +231,37 @@
         </div>
     </main>
 
+    <!-- Booking Form Section -->
+    <section id="requestBooking" class="booking-section">
+        <h2>REQUEST A BOOKING</h2>
+        <form id="requestBookingForm" action="https://formspree.io/f/manankzp" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="event">Event Details</label>
+            <textarea id="event" name="event" rows="4" required></textarea>
+
+            <button type="submit" class="submit-btn">
+                Submit Booking Request
+                <span id="spinner" class="spinner" style="display:none;">⏳</span>
+            </button>
+        </form>
+
+        <!-- Success & Error Messages -->
+        <div id="successMessage" class="success-message" style="display:none;">
+            ✅ Thank you! Your booking request has been submitted.
+        </div>
+        <div id="errorMessage" class="error-message" style="display:none;">
+            ❌ Oops! Something went wrong. Please try again later.
+        </div>
+    </section>
+
     <footer class="main-footer">
         <div class="footer-content">
             <div class="social-links">
@@ -242,7 +274,7 @@
     </footer>
 
     <!-- Floating DJ Booking Starburst Button -->
-    <a href="dj-booking.html" class="floating-dj-button" aria-label="Book DJ Services">
+    <a href="#requestBooking" class="floating-dj-button" aria-label="Book DJ Services">
         <img src="Assets/starburst-icon.png" alt="DJ Bookings" class="starburst-image">
         <div class="button-content">
             <span class="button-text">DJ</span>
@@ -250,46 +282,6 @@
         </div>
     </a>
 
-<<<<<<< HEAD
     <script src="js/main.js?v=3"></script>
-
-<form id="bookingForm" action="https://formspree.io/f/manankzp" method="POST">
-  <label for="name">Your Name</label>
-  <input type="text" id="name" name="name" required>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" required>
-
-  <label for="event">Event Details</label>
-  <textarea id="event" name="event" rows="4" required></textarea>
-
-  <button type="submit" class="submit-btn">Submit Booking</button>
-</form>
-<!-- Floating DJ Booking Button -->
-<a href="#requestBooking" class="floating-booking-btn">
-  DJ BOOKINGS
-</a>
-<h2 id="requestBooking">REQUEST A BOOKING</h2>
-<form id="requestBookingForm" action="https://formspree.io/f/manankzp" method="POST">
-  <!-- your existing fields: name, email, phone, event type, etc. -->
-
-  <button type="submit" class="submit-btn">
-    Submit Booking Request
-    <span id="spinner" class="spinner"><img src="Assets/spinner-icon.svg"></span>
-  </button>
-</form>
-
-<!-- Success & Error Messages -->
-<div id="successMessage" class="success-message">
-  ✅ Thank you! Your booking request has been submitted.
-</div>
-<div id="errorMessage" class="error-message">
-  ❌ Oops! Something went wrong. Please try again later.
-</div>
-
-
-
-=======
->>>>>>> 039edfbc89421dd0b23eddda5a8e704d3b044ddb
 </body>
 </html>
