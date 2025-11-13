@@ -1,7 +1,6 @@
-// Smooth scroll for floating DJ booking button
 document.addEventListener("DOMContentLoaded", () => {
+  // Smooth scroll for floating button
   const bookingBtn = document.querySelector(".floating-booking-btn");
-  
   if (bookingBtn) {
     bookingBtn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -12,82 +11,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Also handle the floating DJ button at the bottom
-  const floatingDjButton = document.querySelector(".floating-dj-button");
-  
-  if (floatingDjButton) {
-    floatingDjButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      const target = document.querySelector("#requestBooking");
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  }
-
-  // Form submission handling
-  const bookingForm = document.getElementById("requestBookingForm");
+  // Booking form submission with spinner + success/error messages
+  const form = document.getElementById("requestBookingForm");
   const successMessage = document.getElementById("successMessage");
   const errorMessage = document.getElementById("errorMessage");
   const spinner = document.getElementById("spinner");
 
-  if (bookingForm) {
-    bookingForm.addEventListener("submit", async (e) => {
+  if (form) {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      
-      // Show spinner
-      if (spinner) {
-        spinner.style.display = "inline";
-      }
+      const formData = new FormData(form);
 
-      // Hide any previous messages
-      if (successMessage) successMessage.style.display = "none";
-      if (errorMessage) errorMessage.style.display = "none";
+      // Show spinner
+      if (spinner) spinner.style.display = "inline-block";
 
       try {
-        const formData = new FormData(bookingForm);
-        const response = await fetch(bookingForm.action, {
-          method: "POST",
+        const response = await fetch(form.action, {
+          method: form.method,
           body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
+          headers: { Accept: "application/json" }
         });
 
-        // Hide spinner
-        if (spinner) {
-          spinner.style.display = "none";
-        }
-
         if (response.ok) {
-          // Show success message
-          if (successMessage) {
-            successMessage.style.display = "block";
-          }
-          // Reset form
-          bookingForm.reset();
-          
-          // Hide success message after 5 seconds
-          setTimeout(() => {
-            if (successMessage) {
-              successMessage.style.display = "none";
-            }
-          }, 5000);
+          if (successMessage) successMessage.style.display = "block";
+          if (errorMessage) errorMessage.style.display = "none";
+          form.reset();
         } else {
-          // Show error message
-          if (errorMessage) {
-            errorMessage.style.display = "block";
-          }
+          if (successMessage) successMessage.style.display = "none";
+          if (errorMessage) errorMessage.style.display = "block";
         }
-      } catch (error) {
-        // Hide spinner
-        if (spinner) {
-          spinner.style.display = "none";
-        }
-        // Show error message
-        if (errorMessage) {
-          errorMessage.style.display = "block";
-        }
+      } catch (err) {
+        if (successMessage) successMessage.style.display = "none";
+        if (errorMessage) errorMessage.style.display = "block";
+      } finally {
+        if (spinner) spinner.style.display = "none";
       }
     });
   }
