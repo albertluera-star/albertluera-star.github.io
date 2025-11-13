@@ -1778,6 +1778,7 @@ a:hover {
         transform: translate(2px, 2px);
     }
 }
+
 /* ========================================
    FLOATING DJ BOOKING STARBURST BUTTON
    ======================================== */
@@ -1788,31 +1789,75 @@ a:hover {
     bottom: 30px;
     right: 30px;
     z-index: 999;
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     text-decoration: none;
     transition: transform 0.3s ease;
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
-    animation: float 3s ease-in-out infinite;
 }
 
 .floating-dj-button:hover {
     transform: scale(1.1) rotate(5deg);
     opacity: 1;
-    animation-play-state: paused;
 }
 
-/* Starburst background image */
-.starburst-image {
-    position: absolute;
+/* Starburst wrapper with animations */
+.starburst-wrapper {
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    animation: pulse 2s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
 }
 
-.floating-dj-button:hover .starburst-image {
-    animation: pulse 2s ease-in-out infinite, spin 4s linear infinite;
+/* Background starburst shape */
+.starburst-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--orange) 0%, #ff8855 100%);
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+}
+
+/* Animated rays behind the starburst */
+.starburst-rays {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #ffcc00 0%, var(--orange) 100%);
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    animation: rotate 8s linear infinite;
+    opacity: 0.4;
+    z-index: -1;
 }
 
 /* Button text content */
@@ -1830,14 +1875,14 @@ a:hover {
 }
 
 .button-text {
-    color: #000000;
+    color: #ffffff;
     font-weight: 900;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-shadow: 
-        1px 1px 2px rgba(255, 255, 255, 0.8),
-        0 0 5px rgba(255, 255, 255, 0.5);
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.3);
     line-height: 1.1;
 }
 
@@ -1860,39 +1905,44 @@ a:hover {
     }
 }
 
-@keyframes spin {
+@keyframes rotate {
     0% {
-        transform: rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     100% {
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
+}
+
+/* Hover effect - stop animations temporarily */
+.floating-dj-button:hover .starburst-wrapper {
+    animation-play-state: paused;
 }
 
 /* Mobile responsive for floating button */
 @media (max-width: 768px) {
     .floating-dj-button {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
         bottom: 20px;
         right: 20px;
     }
     
     .button-text {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .floating-dj-button {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
         bottom: 15px;
         right: 15px;
     }
     
     .button-text {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         letter-spacing: 0.05em;
     }
 }
