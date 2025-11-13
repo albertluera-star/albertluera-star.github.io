@@ -51,24 +51,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Form submission handler (placeholder)
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            
-            // Here you would typically send the data to a server
-            // For now, we'll just log it
-            console.log('Form submitted:', Object.fromEntries(formData));
-            
-            // Show success message (you can customize this)
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            
-            // Reset form
-            this.reset();
+    form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    event: document.getElementById("event").value
+  };
+
+  try {
+    const response = await fetch("/api/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      alert("✅ Thank you! Your booking request has been submitted.");
+      modal.style.display = "none";
+      form.reset();
+    } else {
+      alert("⚠️ Error submitting booking. Please try again.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("❌ Server error. Please try again later.");
+  }
+});
+
+
         });
     }
     
@@ -110,3 +123,178 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+// Track button clicks for analytics
+document.addEventListener("DOMContentLoaded", () => {
+  const bookingBtn = document.querySelector(".floating-booking-btn");
+  if (bookingBtn) {
+    bookingBtn.addEventListener("click", () => {
+      console.log("DJ Booking button clicked!");
+      // Example: send event to Google Analytics or custom tracker
+      // gtag('event', 'click', { 'event_category': 'Booking', 'event_label': 'DJ Bookings Button' });
+    });
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.getElementById("openBookingBtn");
+  const modal = document.getElementById("bookingModal");
+  const closeBtn = document.getElementById("closeBookingBtn");
+  const form = document.getElementById("bookingForm");
+
+ document.addEventListener("DOMContentLoaded", () => {
+  const bookingBtn = document.querySelector(".floating-booking-btn");
+  bookingBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#requestBooking").scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+
+  // Close when clicking outside modal
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // Handle form submission
+  document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("bookingForm");
+  const modal = document.getElementById("bookingModal");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        alert("✅ Thanks bud! Your booking request has been submitted.");
+        modal.style.display = "none";
+        form.reset();
+      } else {
+        alert("⚠️ technology amirite? Error submitting booking. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Server error. Please try again later.");
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("bookingForm");
+  const modal = document.getElementById("bookingModal");
+  const successMessage = document.getElementById("successMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        form.style.display = "none";          // hide form
+        successMessage.style.display = "block"; // show success message
+        setTimeout(() => {
+          modal.style.display = "none";       // close modal after 3s
+          form.reset();
+          form.style.display = "block";       // reset form visibility
+          successMessage.style.display = "none"; // hide success message
+        }, 3000);
+      } else {
+        alert("⚠️ Error submitting booking. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Server error. Please try again later.");
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const bookingBtn = document.querySelector(".floating-booking-btn");
+  bookingBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#requestBooking").scrollIntoView({ behavior: "smooth" });
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("requestBookingForm");
+  const successMessage = document.getElementById("successMessage");
+  const errorMessage = document.getElementById("errorMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        successMessage.style.display = "block";
+        errorMessage.style.display = "none";
+        form.reset();
+      } else {
+        successMessage.style.display = "none";
+        errorMessage.style.display = "block";
+      }
+    } catch (err) {
+      console.error(err);
+      successMessage.style.display = "none";
+      errorMessage.style.display = "block";
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("requestBookingForm");
+  const successMessage = document.getElementById("successMessage");
+  const errorMessage = document.getElementById("errorMessage");
+  const spinner = document.getElementById("spinner");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    // Show spinner
+    spinner.style.display = "inline-block";
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        successMessage.style.display = "block";
+        errorMessage.style.display = "none";
+        form.reset();
+      } else {
+        successMessage.style.display = "none";
+        errorMessage.style.display = "block";
+      }
+    } catch (err) {
+      console.error(err);
+      successMessage.style.display = "none";
+      errorMessage.style.display = "block";
+    } finally {
+      // Hide spinner after response
+      spinner.style.display = "none";
+    }
+  });
+});
+

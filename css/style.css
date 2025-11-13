@@ -1776,123 +1776,212 @@ a:hover {
     
     .gallery-item-home:active .cmyk-layer.black {
         transform: translate(2px, 2px);
-    }
-}
-/* ========================================
-   FLOATING DJ BOOKING STARBURST BUTTON
-   ======================================== */
-
-/* Main floating button container */
-.floating-dj-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 999;
-    width: 160px;
-    height: 160px;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
-    animation: float 3s ease-in-out infinite;
+    }document.addEventListener("DOMContentLoaded", () => {
+  const bookingBtn = document.querySelector(".floating-booking-btn");
+  bookingBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#requestBooking").scrollIntoView({ behavior: "smooth" });
+  });
+});
+/* Booking Form Styling */
+#requestBookingForm {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.floating-dj-button:hover {
-    transform: scale(1.1) rotate(5deg);
-    opacity: 1;
-    animation-play-state: paused;
+#requestBookingForm label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
 }
 
-/* Starburst background image */
-.starburst-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    animation: pulse 2s ease-in-out infinite;
+#requestBookingForm input,
+#requestBookingForm textarea,
+#requestBookingForm select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-.floating-dj-button:hover .starburst-image {
-    animation: pulse 2s ease-in-out infinite, spin 4s linear infinite;
+#requestBookingForm input:focus,
+#requestBookingForm textarea:focus,
+#requestBookingForm select:focus {
+  border-color: var(--accent-red, #ff0000);
+  outline: none;
+  box-shadow: 0 0 5px rgba(255,0,0,0.3);
 }
 
-/* Button text content */
-.button-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
+#requestBookingForm button {
+  margin-top: 20px;
+  background: var(--accent-red, #ff0000);
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.button-text {
-    color: #000000;
-    font-weight: 900;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-shadow: 
-        1px 1px 2px rgba(255, 255, 255, 0.8),
-        0 0 5px rgba(255, 255, 255, 0.5);
-    line-height: 1.1;
+#requestBookingForm button:hover {
+  background: #e60000;
+}
+/* Success & Error Messages */
+.success-message, .error-message {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
 }
 
-/* Animations */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+.success-message {
+  background: #e6ffe6;
+  border: 1px solid #00cc00;
+  color: #006600;
+}
+
+.error-message {
+  background: #ffe6e6;
+  border: 1px solid #cc0000;
+  color: #660000;
+}
+.spinner {
+  display: none;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  animation: spin 1s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.landing {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.landing-logo {
+  max-width: 220px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Floating button positioned near logo */
+.floating-booking-btn {
+  position: absolute;
+  top: 60%;   /* adjust to align with logo */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-red, #ff0000);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.floating-booking-btn:hover {
+  transform: translateX(-50%) scale(1.1);
+  background: #e60000;
+}
+.site-header {
+  position: relative;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.site-logo {
+  max-width: 180px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Floating button near logo */
+.floating-booking-btn {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  background: var(--accent-red, #ff0000);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.floating-booking-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #e60000;
+}
+@media (max-width: 768px) {
+  .floating-booking-btn {
+    position: static;
+    display: inline-block;
+    margin-top: 20px;
+    transform: none;
+  }
+}
+.floating-booking-btn {
+  position: absolute; /* or relative to your logo container */
+  top: 50%; /* adjust to align with logo */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--accent-red, #ff0000);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: background 0.3s ease;
+  z-index: 10;
+
+  /* Pulse effect */
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(255,0,0,0.6);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 0 20px rgba(255,0,0,0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(255,0,0,0);
+  }
 }
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Mobile responsive for floating button */
 @media (max-width: 768px) {
-    .floating-dj-button {
-        width: 120px;
-        height: 120px;
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .button-text {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .floating-dj-button {
-        width: 100px;
-        height: 100px;
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .button-text {
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-    }
+  .floating-booking-btn {
+    position: static;
+    display: inline-block;
+    margin-top: 20px;
+    transform: none;
+    animation: pulse 2s infinite;
+  }
 }

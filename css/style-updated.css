@@ -1946,3 +1946,38 @@ a:hover {
         letter-spacing: 0.05em;
     }
 }
+/* Floating DJ Booking Button */
+.floating-booking-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent-red, #ff0000);
+  color: var(--off-white, #f5f5f5);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 18px 24px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: pulse 2s infinite;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+    79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+    2% 35%, 39% 35%
+  ); /* starburst shape */
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.floating-booking-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  background: #e60000;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
