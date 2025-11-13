@@ -129,7 +129,7 @@
                     <h2>REQUEST A BOOKING</h2>
                     <p class="form-intro">Fill out the form below and I'll get back to you within 24 hours.</p>
                     
-                    <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <form class="booking-form" action="https://formspree.io/f/manankzp" method="POST">
                         <input type="hidden" name="_subject" value="DJ Booking Request">
                         <input type="hidden" name="_next" value="https://albertluera.com/thank-you.html">
                         
@@ -220,6 +220,30 @@
                         
                         <p class="form-note">* Required fields. I'll respond within 24 hours.</p>
                     </form>
+                    <div id="bookingModal" class="booking-modal">
+  <div class="booking-modal-content">
+    <span class="close-modal" id="closeBookingBtn">&times;</span>
+    <h2>Book a DJ</h2>
+    <form id="bookingForm" action="https://formspree.io/f/manankzp"POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="event">Event Details</label>
+      <textarea id="event" name="event" rows="4" required></textarea>
+
+      <button type="submit" class="submit-btn">Submit Booking</button>
+    </form>
+
+    <!-- Success message -->
+    <div id="successMessage" class="success-message">
+      ✅ Thanks bud! Your booking request has been submitted.
+    </div>
+  </div>
+</div>
+
                 </div>
             </div>
         </section>
