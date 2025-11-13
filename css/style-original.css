@@ -81,22 +81,21 @@ a:hover {
     overflow: hidden;
     background-color: var(--primary-black);
     position: relative;
+    background-image: url('../Assets/landing-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.landing-background {
-    position: fixed;
+.landing-page::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
-}
-
-.landing-background .bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
 }
 
 .landing-content {
@@ -114,7 +113,6 @@ a:hover {
 
 .landing-logo {
     max-width: 80%;
-    width: 600px;
     height: auto;
     margin-bottom: 2rem;
 }
@@ -156,7 +154,7 @@ a:hover {
     background-color: var(--off-white);
     border-bottom: 2px solid var(--primary-black);
     z-index: 100;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 }
 
 .nav-container {
@@ -173,11 +171,42 @@ a:hover {
     font-weight: 900;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    z-index: 101;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.nav-toggle span {
+    width: 30px;
+    height: 3px;
+    background: var(--primary-black);
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     list-style: none;
 }
 
@@ -197,6 +226,254 @@ a:hover {
     width: 100%;
     height: 2px;
     background-color: var(--primary-black);
+}
+
+/* ========================================
+   DJ BOOKING BANNER
+   ======================================== */
+.dj-booking-banner {
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--gray-dark) 100%);
+    color: var(--off-white);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--primary-black);
+}
+
+.booking-content h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.booking-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.booking-btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background-color: var(--off-white);
+    color: var(--primary-black);
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 3px solid var(--off-white);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.booking-btn:hover {
+    background-color: transparent;
+    color: var(--off-white);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   DJ BOOKING PAGE
+   ======================================== */
+.booking-main {
+    min-height: calc(100vh - 200px);
+}
+
+.booking-section {
+    padding: 4rem 2rem;
+}
+
+.booking-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+}
+
+.booking-info h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.booking-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    color: var(--gray-mid);
+}
+
+.booking-highlights,
+.booking-contact {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--off-white);
+    border: 2px solid var(--primary-black);
+}
+
+.booking-highlights h3,
+.booking-contact h3 {
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.booking-highlights ul {
+    list-style: none;
+    padding: 0;
+}
+
+.booking-highlights li {
+    padding: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.booking-contact p {
+    margin: 0.5rem 0;
+    font-weight: 400;
+}
+
+.booking-form-wrapper {
+    background: white;
+    padding: 2rem;
+    border: 3px solid var(--primary-black);
+}
+
+.booking-form-wrapper h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.form-intro {
+    margin-bottom: 2rem;
+    color: var(--gray-mid);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.booking-form select {
+    padding: 1rem;
+    border: 2px solid var(--primary-black);
+    background-color: var(--off-white);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form-note {
+    font-size: 0.85rem;
+    color: var(--gray-mid);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.resume-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-black);
+    color: var(--off-white);
+    text-decoration: none;
+    border: 2px solid var(--primary-black);
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.resume-link:hover {
+    background: transparent;
+    color: var(--primary-black);
+}
+
+.resume-link:hover {
+    background: transparent;
+    color: var(--primary-black);
+}
+
+.video-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border: 3px solid var(--primary-black);
+    margin-top: 1rem;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.booking-video {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--off-white);
+    border: 2px solid var(--primary-black);
+}
+
+.booking-video h3 {
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.mixcloud-link a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-black);
+    color: var(--off-white);
+    text-decoration: none;
+    border: 2px solid var(--primary-black);
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+}
+
+.mixcloud-link a:hover {
+    background: transparent;
+    color: var(--primary-black);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-embed {
+        padding-bottom: 75%; /* Adjust for mobile */
+    }
 }
 
 /* ========================================
@@ -247,6 +524,7 @@ a:hover {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    aspect-ratio: 1/1;
 }
 
 /* Base image - hidden on hover */
@@ -1091,6 +1369,24 @@ a:hover {
     margin-bottom: 2rem;
 }
 
+.contact-item.primary-contact {
+    background: var(--primary-black);
+    color: var(--off-white);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--primary-black);
+}
+
+.contact-item.primary-contact h3 {
+    color: var(--off-white);
+}
+
+.contact-item.primary-contact a {
+    color: var(--off-white);
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
 .contact-item h3 {
     font-size: 0.85rem;
     font-weight: 900;
@@ -1105,10 +1401,22 @@ a:hover {
     color: var(--gray-mid);
 }
 
+.contact-item a:hover {
+    color: var(--primary-black);
+}
+
 .social-list {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+.contact-form-wrapper h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
 }
 
 .contact-form {
@@ -1131,17 +1439,20 @@ a:hover {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     padding: 1rem;
     border: 2px solid var(--primary-black);
     background-color: var(--off-white);
     font-family: inherit;
     font-size: 1rem;
+    font-weight: 700;
     transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
     border-color: var(--accent-red);
 }
@@ -1156,7 +1467,7 @@ a:hover {
     background-color: var(--primary-black);
     color: var(--off-white);
     border: 3px solid var(--primary-black);
-    font-weight: 700;
+    font-weight: 900;
     font-size: 0.95rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -1168,6 +1479,19 @@ a:hover {
 .submit-btn:hover {
     background-color: transparent;
     color: var(--primary-black);
+}
+
+.form-note {
+    font-size: 0.9rem;
+    color: var(--gray-mid);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-note a {
+    color: var(--primary-black);
+    font-weight: 900;
+    text-decoration: underline;
 }
 
 /* ========================================
@@ -1205,75 +1529,246 @@ a:hover {
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     color: var(--gray-light);
-}
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE / MOBILE OPTIMIZED
    ======================================== */
-@media (max-width: 768px) {
-    .nav-links {
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .gallery-grid-home {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .booking-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    /* Navigation - Mobile Menu */
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background: var(--off-white);
+        flex-direction: column;
+        gap: 0;
+        padding: 5rem 2rem 2rem;
+        border-left: 3px solid var(--primary-black);
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid var(--gray-light);
     }
     
     .nav-links a {
-        font-size: 0.75rem;
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
     }
     
+    /* Home Gallery */
     .gallery-grid-home {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 1rem;
     }
     
-    .project-gallery {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .gallery-home {
+        padding: 2rem 1rem;
     }
     
+    /* DJ Booking Banner */
+    .dj-booking-banner {
+        padding: 2rem 1rem;
+    }
+    
+    .booking-content h2 {
+        font-size: 2rem;
+    }
+    
+    .booking-btn {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Projects Grid */
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
-    .about-container,
-    .contact-container {
+    /* Project Detail Gallery */
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    /* About Page */
+    .about-container {
         grid-template-columns: 1fr;
     }
     
     .about-image {
         position: relative;
         top: 0;
+        max-width: 400px;
+        margin: 0 auto;
     }
     
+    /* Contact & Booking */
+    .contact-container,
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Personal Gallery */
     .gallery-item.wide {
         grid-column: span 1;
     }
     
+    /* Work Grid */
     .work-grid {
         grid-template-columns: 1fr;
     }
     
-    .pitch-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 1024px) {
-    .gallery-grid-home {
-        grid-template-columns: repeat(2, 1fr);
+    /* Typography Mobile */
+    .hero h1 {
+        font-size: 2.5rem;
     }
     
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Spacing */
+    .hero {
+        min-height: 60vh;
+        padding: 3rem 1rem;
+    }
+    
+    .featured-work,
+    .client-pitch,
+    .projects-main,
+    .personal-main {
+        padding: 3rem 1rem;
+    }
+    
+    /* Landing Page Mobile */
+    .landing-logo {
+        max-width: 90%;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+    }
+    
+    .enter-btn {
+        padding: 1rem 2.5rem;
+        font-size: 0.9rem;
     }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
     .nav-container {
-        flex-direction: column;
+        padding: 0 1rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .gallery-grid-home {
         gap: 1rem;
     }
     
-    .nav-links {
-        gap: 1rem;
+    .cmyk-container {
+        border-width: 2px;
+    }
+    
+    .booking-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .submit-btn,
+    .booking-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Touch Device Improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    .nav-links a {
+        padding: 1.5rem 0;
+    }
+    
+    .booking-btn,
+    .cta-btn,
+    .submit-btn {
+        min-height: 48px;
+    }
+    
+    /* CMYK effect on tap for touch devices */
+    .gallery-item-home:active .base-image {
+        opacity: 0;
+    }
+    
+    .gallery-item-home:active .cmyk-layer {
+        opacity: 1;
+    }
+    
+    .gallery-item-home:active .cmyk-layer.cyan {
+        transform: translate(-3px, -3px);
+    }
+    
+    .gallery-item-home:active .cmyk-layer.magenta {
+        transform: translate(3px, -2px);
+    }
+    
+    .gallery-item-home:active .cmyk-layer.yellow {
+        transform: translate(-2px, 3px);
+    }
+    
+    .gallery-item-home:active .cmyk-layer.black {
+        transform: translate(2px, 2px);
     }
 }
