@@ -1985,4 +1985,27 @@ a:hover {
     transform: none;
     animation: pulse 2s infinite;
   }
+/* This is your main style for the grid items */
+.project-item {
+  width: 33.3%; /* 3 columns on desktop */
+  float: left; /* Or use Flexbox/Grid */
+}
+
+/* This media query applies ONLY to screens 768px wide or less */
+@media (max-width: 768px) {
+  .project-item {
+    width: 50%; /* 2 columns on tablet */
+  }
+}
+
+/* This media query applies ONLY to screens 480px wide or less */
+@media (max-width: 480px) {
+  .project-item {
+    width: 100%; /* 1 column on mobile */
+  }
+}  
+img {
+  max-width: 100%;
+  height: auto;
+}
 }
