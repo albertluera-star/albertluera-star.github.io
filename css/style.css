@@ -25,7 +25,7 @@ html {
 
 body {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
-    background-color: var(--cream);
+    background-image: url('../Assets/landing-bg.webp');
     color: var(--primary-black);
     line-height: 1.6;
     overflow-x: hidden;
@@ -74,7 +74,8 @@ a:hover {
     background-size: 5px 5px, 3px 3px;
     background-position: 0 0, 2px 2px;
     pointer-events: none;
-    mix-blend-mode: multiply;
+    mix-blend-mode: overlay
+    ;
     opacity: 0.75;
     filter: contrast(1.3);
 }
@@ -547,7 +548,7 @@ a:hover {
 /* CMYK Layers */
 .cmyk-layer {
     opacity: 0;
-    mix-blend-mode: multiply;
+    mix-blend-mode: overlay
     z-index: 1;
 }
 
@@ -557,7 +558,7 @@ a:hover {
 
 /* Cyan Layer */
 .cmyk-layer.cyan {
-    filter: grayscale(100%) sepia(100%) saturate(10000%) hue-rotate(160deg);
+    filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(160deg);
     z-index: 4;
 }
 
@@ -567,22 +568,22 @@ a:hover {
 
 /* Magenta Layer */
 .cmyk-layer.magenta {
-    filter: grayscale(100%) sepia(100%) saturate(10000%) hue-rotate(300deg);
+    filter: grayscale(100%) sepia(100%) saturate(250%) hue-rotate(300deg);
     z-index: 3;
 }
 
 .gallery-item-home:hover .cmyk-layer.magenta {
-    transform: translate(3px, -2px);
+    transform: translate(5px, -2px);
 }
 
 /* Yellow Layer */
 .cmyk-layer.yellow {
-    filter: grayscale(100%) sepia(100%) saturate(10000%) hue-rotate(30deg) brightness(1.2);
+    filter: grayscale(100%) sepia(100%) saturate(1000%) hue-rotate(180deg) brightness(1.2);
     z-index: 2;
 }
 
 .gallery-item-home:hover .cmyk-layer.yellow {
-    transform: translate(-2px, 3px);
+    transform: translate(-10px, 3px);
 }
 
 /* Black Layer (Key) */
@@ -592,7 +593,7 @@ a:hover {
 }
 
 .gallery-item-home:hover .cmyk-layer.black {
-    transform: translate(2px, 2px);
+    transform: translate(20px, 2px);
 }
 
 /* ========================================
