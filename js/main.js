@@ -92,3 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// Get the two elements we need to work with
+const hamburgerButton = document.getElementById("hamburger-button");
+const navMenu = document.getElementById("nav-menu");
+
+// Add a click "listener" to the hamburger button
+hamburgerButton.addEventListener("click", () => {
+    // When clicked, add/remove the "is-active" class
+    // from BOTH the hamburger and the nav menu
+    hamburgerButton.classList.toggle("is-active");
+    navMenu.classList.toggle("is-active");
+});
