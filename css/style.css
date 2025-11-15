@@ -1271,7 +1271,6 @@ a:hover {
 .about-image {
     width: 100%;
     aspect-ratio: 3/4;
-    border: 3px solid var(--primary-black);
     overflow: hidden;
     position: sticky;
     top: 100px;
